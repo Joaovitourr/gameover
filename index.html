@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jogo Pedra, Papel e Tesoura</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    #mensagem {
+        margin-top: 20px;
+        font-weight: bold;
+    } div{
+        font-size: 1.4rem;
+    }
+</style>
+</head>
+<body>
+
+<h2>Jogo Pedra, Papel e Tesoura</h2>
+
+<select id="escolhaUsuario">
+    <option value="pedra">Pedra</option>
+    <option value="papel">Papel</option>
+    <option value="tesoura">Tesoura</option>
+
+</select>
+<button onclick="jogar()">Jogar</button>
+
+<div id="mensagem"></div>
+<div class="placar-1"> Joao: <span class="placartext" style="color: green;"> </span> </div>
+<div class="placar-2"> Voce: <span class="placarUser" style="color: red;"></span> </div>
+
+<script>
+
+
+
+let cont1 = 1;
+let cont2 = 0;
+
+function jogar() {
+    var opcoes = ['pedra', 'papel', 'tesoura'];
+    var escolha_da_maquina = opcoes[Math.floor(Math.random() * opcoes.length)];
+    var escolha_do_usuario = document.getElementById("escolhaUsuario").value;
+    let placar = document.querySelector(".placartext");
+    let placar2 = document.querySelector(".placarUser");
+
+    var mensagem = document.getElementById("mensagem");
+
+ 
+    if(escolha_do_usuario === "pedra"){
+        mensagem.innerHTML = "Voce perdeu!!! Eu escolhi: Papel";
+        placar.textContent = cont1++;
+        placar2.textContent = cont2;
+
+    }
+    if(escolha_do_usuario === "tesoura"){
+        mensagem.innerHTML = "Voce perdeu!!! Eu escolhi: Pedra";
+        placar.textContent = cont1++;
+        placar2.textContent = cont2;
+
+    }
+    if(escolha_do_usuario === "papel"){
+        mensagem.innerHTML = "Voce perdeu!!! Eu escolhi: Tesoura";
+        placar.textContent = cont1++;
+        placar2.textContent = cont2;
+
+    }
+
+   
+
+}
+
+
+</script>
+
+</body>
+</html>
